@@ -1,0 +1,139 @@
+---
+title: 函数和函数表达式
+date: 2019-04-20 10:32:02
+tags: JavaScript
+---
+
+js定义函数的格式是下面这个样子
+
+```js
+function showMsg() {
+    alert("hello, world");
+}
+```
+
+<!-- more -->
+
+首先是`function`关键字，然后是函数名，参数列表，最后是函数体，很简单。
+
+## 2. 局部变量
+
+在函数内部定义的变量称为局部变量，只能在函数内部使用
+
+```js
+function showMsg() {
+    let message = "Hello, I am JavaScript";
+    alert(message);
+}
+showMsg();// Hello, I am JavaScript
+alert(message);// ERROR, massage is local to the function.
+```
+
+## 3.外部变量
+
+函数也可以访问和修改外部变量，例如：
+
+```js
+let userName = "vincent.zheng";
+function showMsg() {
+    let message = "hello, " + userName;
+    alert(message);
+}
+showMsg();//Hello, vincent.zheng
+```
+
+如果在函数内部定义了与外部变量同名的变量，在函数内部，外部变量不可见。
+
+```js
+let userName = 'John';
+
+function showMessage() {
+  let userName = "Bob"; // declare a local variable
+
+  let message = 'Hello, ' + userName; // Bob
+  alert(message);
+}
+
+// the function will create and use its own userName
+showMessage();
+
+alert( userName ); // John, unchanged, the function did not access the outer variable
+```
+
+## 4.函数参数和默认值
+
+js函数可以传入任意类型的数据，如果在函数调用时，没有提供某个函数参数，那么这个参数的值是`undefined`,比如下面的例子，`test === undefined`。
+
+```js
+function showMsg(from, text) {
+    // let msg = "hello, everyone";
+    from = '*' + from + '*';
+    alert(from + text);
+}
+showMsg('vincent');
+```
+
+也可以在定义函数的时候给参数设置一个默认值，如：
+
+```js
+function showMsg(from, text = "hello") {
+    // let msg = "hello, everyone";
+    from = '*' + from + '*';
+    alert(from + text);
+}
+showMsg('vincent');  // *vincent*hello
+```
+
+函数参数的默认值也可以是另外一个函数
+
+```js
+function showMsg(from, to = getName()) {
+    // let msg = "hello, everyone";
+    from = from + ':';
+    alert(from + to);
+}
+function getName() {
+    return "vincent";
+}
+showMsg('me', "you"); // me:you
+showMsg('me'); // me:vincent
+```
+
+旧版本的JavaScript不支持默认参数，如果希望给函数传一个默认参数的话，可以使用下面两种办法。
+
+```js
+// 方法1
+function showMessage(from, text) {
+  if (text === undefined) {
+    text = 'no text given';
+  }
+
+  alert( from + ": " + text );
+}
+// 方法2
+function showMessage(from, text) {
+  // if text is falsy then text gets the "default" value
+  text = text || 'no text given';
+  ...
+}
+```
+
+## 5.函数返回值
+
+js函数可以返回任意类型的值，`return`可以写在函数内部的任意位置。需要注意的是两点：
+
+1. 在函数内只写`return`或者不写,函数返回`undefined`
+
+2. `return`和返回值之间不能加换行符，因为js会自动在`return`后面加上`;`相当于返回`undefined`了.
+
+```js
+return
+ (some + long + expression + or + whatever * f(a) + f(b))
+```
+
+等价于
+
+```js
+return;
+ (some + long + expression + or + whatever * f(a) + f(b))  // 这一行不会执行到
+```

@@ -9,3 +9,4 @@
 *.out
 a
 C++/.vscode/settings.json
+C++/.vscode/launch.json

@@ -1,0 +1,33 @@
+---
+title: conditon operators
+date: 2019-04-19 23:41:16
+tags:
+---
+
+# 条件判断
+
+## 1.条件运算符
+
+不同于C/C++中的`?:`运算符，在js中可以使用多个`?:`处理多分支语句。
+
+```js
+let age = prompt("age?", 18);
+let message = (age < 3) ? "hi, baby":
+    (age < 18)?"hello, boy":
+    (age < 100)?"Greetings":"What an unusual age!";
+alert(message);
+
+```
+
+## 2.某些情况下'?'可以省略
+
+```js
+let result = age > 18 ? true : false;  ==> let result = age > 18;
+```
+
+## 3.有时候，`?`可以取代if
+
+```js
+let company = prompt("which company created JavaScript?", "");
+(company == 'Netscape') ? alert('right') : alert("wrong");
+```

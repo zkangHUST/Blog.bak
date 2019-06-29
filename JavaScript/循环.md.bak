@@ -1,0 +1,30 @@
+---
+title: 循环
+date: 2019-04-20 00:26:36
+tags: JavaScript
+---
+
+js中的循环跟C/C++当中的循环几乎没有什么区别。除了一点，在js中可以在循环前面加上一个`label`,然后在循环中使用`break label`跳出整个循环，而不仅仅是最内层循环。
+
+<!-- more -->
+
+```js
+outer: for(let i = 0; i < 3; i++) { //标签也可以另起一行
+    for (let j = 0; j < 3; j++) {
+        let input = prompt(`value at coords (${i}, ${j})`, "");
+        if (!input) {
+            break outer; // 跳出整个循环，
+        }
+    }
+}
+alert('done!');
+```
+
+continue 语句也可以使用标签。
+
+注意：label并不是goto
+
+```js
+break label:  // jump to label?No   .
+label:for(...) 
+```
