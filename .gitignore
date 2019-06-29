@@ -1,0 +1,8 @@
+*.c
+*.o
+*.py
+*.h
+*.exe
+*.vscode/*
+*.cpp
+*.s
