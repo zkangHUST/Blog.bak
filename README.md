@@ -14,7 +14,6 @@
 10. [深入理解static关键字2](./C++/深入理解static关键字-2.md)
 11. [自己动手实现vector](./C++/自己动手实现vector.md)
 12. [记一个bug](./C++/记一个bug-1.md)
-13. [逆序链表的两种方式](./C++/逆序链表的两种方式.md)
 
 ## OS
 
@@ -23,5 +22,8 @@
 
 ## Data Structure
 
-1. [返回先序遍历的最后一个节点](./C++/返回先序遍历的最后一个节点.md)
+1. [返回先序遍历的最后一个节点](./DataStructure/返回先序遍历的最后一个节点.md)
 
+## Human Resouce Machine
+
+1. [Human resource Machine攻略](./HumanResourceMachine)
